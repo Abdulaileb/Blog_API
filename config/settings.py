@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     "dj_rest_auth",  # new
     "dj_rest_auth.registration",  # new
 
+    'drf_spectacular',
+
 ]
 
 REST_FRAMEWORK = {
@@ -63,7 +65,18 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [  # new
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
-], }
+    ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",  # new
+
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Blog API Project",
+    "DESCRIPTION": "A sample blog to learn about DRF",
+    "VERSION": "1.0.0",
+    # OTHER SETTINGS
+}
+
 
 
 MIDDLEWARE = [
